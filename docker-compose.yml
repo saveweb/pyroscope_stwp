@@ -1,0 +1,15 @@
+services:
+  pyroscope:
+    image: grafana/pyroscope:latest
+    container_name: pyroscope
+    deploy:
+      resources:
+        limits:
+           cpus: "4"
+           memory: 4G
+        reservations:
+            memory: 500M    
+    restart: unless-stopped
+    ports:
+      - "127.0.0.40:4040:4040"
+    # https://grafana.com/docs/pyroscope/latest/configure-server/reference-configuration-parameters/
